@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dc0sja077dara"]
+[gd_scene load_steps=10 format=3 uid="uid://dc0sja077dara"]
 
 [ext_resource type="Texture2D" uid="uid://bvtwy4dui6wrg" path="res://tutorialgodot/sprites/tilesets/plains.png" id="1_5eai7"]
 [ext_resource type="Texture2D" uid="uid://blpfel12d3qq6" path="res://tutorialgodot/sprites/tilesets/grass.png" id="2_ib4j6"]
@@ -195,9 +195,6 @@ sources/0 = SubResource("TileSetAtlasSource_njndx")
 sources/1 = SubResource("TileSetAtlasSource_38avu")
 sources/2 = SubResource("TileSetAtlasSource_kxmnt")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec4jo"]
-size = Vector2(881, 7)
-
 [node name="world" type="Node2D"]
 y_sort_enabled = true
 
@@ -213,12 +210,16 @@ layer_2/name = "ysort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(65545, 655362, 7, 393217, 655362, 7, 720898, 2, 5, 29, 2, 5, 15, 393218, 7, 65556, 393218, 7, 851982, 393218, 7, 720903, 524290, 6, 851976, 524290, 6, 393242, 524290, 6, 524316, 524290, 6, 851987, 393218, 7, 262154, 393218, 7, 393238, 393218, 7, 262147, 524290, 6, 851979, 2, 1, 917515, 2, 1, 917516, 2, 1, 655385, 2, 1, 655386, 2, 1, 655387, 2, 1, 524290, 2, 1, 524289, 2, 1, 589825, 2, 1, 917521, 327682, 0, 4, 2, 0, 65562, 2, 1, 196635, 2, 1, 65553, 327682, 0, 262157, 327682, 0, 1048579, 2, 5, 1114122, 524290, 6, 1114126, 524290, 6, 1179667, 524290, 6, 1114135, 524290, 6, 1179676, 393218, 7, 1245190, 655362, 7, 327716, 2, 1, 458784, 2, 1, 1245215, 2, 1, 1507332, 2, 5, 1441806, 2, 5, 1638431, 524290, 6, 1638437, 524290, 6, 1441834, 524290, 6, 1310766, 524290, 6, 1703981, 655362, 7, 131118, 655362, 7, 131112, 2, 5, 1376276, 2, 0, 1441812, 2, 1, 852004, 327682, 0, 852005, 327682, 0, 917540, 327682, 0, 917541, 327682, 0, 852006, 327682, 0, 1638416, 2, 5, 524333, 524290, 6, 1245234, 2, 5, 524340, 2, 5, 50, 2, 5, 1114156, 655362, 7, 1638449, 2, 5, 1376290, 2, 5, 393255, 524290, 6, 36, 524290, 6, 917542, 327682, 0, 2031667, 327682, 0, 2162741, 327682, 0, 458814, 2, 5, 58, 2, 5, 64, 2, 5, 1966082, 2, 5, 2162693, 655362, 7, 2293762, 393218, 7, 2097187, 393218, 7, 2359331, 393218, 7, 2097168, 393218, 7, 2359312, 393218, 7, 1769537, 2, 1, 2228287, 2, 0, 196670, 2, 0, 1114177, 524290, 6, 1376314, 524290, 6, 2031657, 524290, 6, 2031664, 524290, 6, 1769482, 524290, 6, 1835037, 655362, 7, 1835030, 655362, 7, 1114174, 524290, 6, 1179702, 655362, 7, 2293814, 655362, 7)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap"]
-position = Vector2(440.5, -3.5)
-shape = SubResource("RectangleShape2D_ec4jo")
-
 [node name="playerUwU" parent="." instance=ExtResource("4_fmxti")]
 position = Vector2(6, 33)
 
 [node name="enemy" parent="." instance=ExtResource("5_blcg2")]
 position = Vector2(243, 126)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1072, 608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 133, 0, 350, 0, 350, -47, 402, -47, 403, 0, 559, 0, 694, 0, 870, 0, 1054, 0, 1072, 0, 1072, 62, 1072, 149, 1072, 222, 1072, 290, 1072, 380, 1072, 608, 0, 608, 0, 559, 0, 4, -4, 4, -7, -23, -127, 49, -187, 227, -206, 557, -121, 763, -4, 826, 313, 803, 631, 803, 1070, 765, 1379, 651, 1521, 411, 1525, 157, 1481, -15, 1360, -119, 1119, -157, 559, -201, 277, -205, 121, -184, 12, -54, 1, -23, 3, -6, -4, 4)
