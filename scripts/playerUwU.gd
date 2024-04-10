@@ -112,3 +112,6 @@ func enemy_attack():
 
 func _on_ouchie_timeout():
 	enemy_attack_cooldown = true
+
+
+

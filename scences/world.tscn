@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc0sja077dara"]
+[gd_scene load_steps=12 format=3 uid="uid://dc0sja077dara"]
 
 [ext_resource type="Texture2D" uid="uid://bvtwy4dui6wrg" path="res://tutorialgodot/sprites/tilesets/plains.png" id="1_5eai7"]
+[ext_resource type="Script" path="res://scences/world.gd" id="1_eopf4"]
 [ext_resource type="Texture2D" uid="uid://blpfel12d3qq6" path="res://tutorialgodot/sprites/tilesets/grass.png" id="2_ib4j6"]
 [ext_resource type="Texture2D" uid="uid://cqyh27vmp3ruo" path="res://tutorialgodot/sprites/objects/objects.png" id="3_q0jj2"]
 [ext_resource type="PackedScene" uid="uid://d0hqnthtprfuk" path="res://scences/player_uw_u.tscn" id="4_fmxti"]
@@ -217,8 +218,12 @@ sources/0 = SubResource("TileSetAtlasSource_njndx")
 sources/1 = SubResource("TileSetAtlasSource_38avu")
 sources/2 = SubResource("TileSetAtlasSource_kxmnt")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lc0px"]
+size = Vector2(57, 58)
+
 [node name="world" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_eopf4")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -245,3 +250,12 @@ position = Vector2(1072, 608)
 
 [node name="CollisionPlayFieldAndHills" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(0, 0, 133, 0, 209, 0, 211, 0, 350, 0, 377, 0, 393, 0, 403, 0, 559, 0, 694, 0, 715, 0, 740, 0, 849, 0, 1054, 0, 1074, 1, 1074, 67, 1104, 67, 1104, 93, 1074, 93, 1074, 149, 1074, 195, 1130, 195, 1130, 253, 1074, 254, 1074, 289, 1074, 405, 1074, 528, 1074, 563, 1103, 563, 1103, 588, 1074, 588, 1074, 609, 606.261, 608.099, 603.259, 608.093, 555, 608, 555, 663, 275, 662, 275, 608, 0, 608, 0, 454, 0, 1, -4, 4, -4, -22, -125, -22, -126, 235, -126, 604, -127, 754, 6, 754, 313, 754, 634, 754, 1075, 756, 1261, 756, 1257, 411, 1257, 263, 1257, -11, 1257, -174, 1113, -174, 553, -177, 277, -177, 0, -177, 0, -56, 0, -23, 0, -6, -4, 4)
+
+[node name="cliffside_trans_point" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_trans_point"]
+position = Vector2(1101, 224)
+shape = SubResource("RectangleShape2D_lc0px")
+
+[connection signal="body_entered" from="cliffside_trans_point" to="." method="_on_cliffside_trans_point_body_entered"]
+[connection signal="body_exited" from="cliffside_trans_point" to="." method="_on_cliffside_trans_point_body_exited"]
