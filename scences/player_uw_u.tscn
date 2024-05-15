@@ -444,7 +444,7 @@ shape = SubResource("CircleShape2D_e8ckc")
 wait_time = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+zoom = Vector2(2.8, 2.8)
 limit_left = 0
 limit_top = 0
 limit_right = 1440
