@@ -444,11 +444,12 @@ shape = SubResource("CircleShape2D_e8ckc")
 wait_time = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-4, 3)
 zoom = Vector2(2.8, 2.8)
 limit_left = -330
-limit_top = 0
-limit_right = 2050
-limit_bottom = 1100
+limit_top = -330
+limit_right = 2900
+limit_bottom = 5000
 
 [connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]

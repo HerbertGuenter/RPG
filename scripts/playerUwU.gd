@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
+var enemyRED_inattack_range = false
+var enemyRED_attack_cooldown = true
 var health = 100
 var player_alive = true
 var attack_ip = false
@@ -105,6 +107,14 @@ func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
 		health = health - 20
 		enemy_attack_cooldown = false
+		$ouchie.start()
+		print("Player ouchie  .·°՞(≧□≦)՞°·. ")
+		print(health)
+		
+func enemyRED_attack():
+	if enemyRED_inattack_range and enemyRED_attack_cooldown == true:
+		health = health - 30
+		enemyRED_attack_cooldown = false
 		$ouchie.start()
 		print("Player ouchie  .·°՞(≧□≦)՞°·. ")
 		print(health)
