@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
+
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var enemyRED_inattack_range = false
 var enemyRED_attack_cooldown = true
-var health = 100
+var health = 100000
+var attack = 10
 var player_alive = true
 var attack_ip = false
 
@@ -101,6 +103,16 @@ func _on_player_hitbox_body_entered(body):
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_inattack_range = false
+		
+		
+# Function to handle power-up pickup
+func _on_apple_power_up_picked_up():
+	# Debug print statement
+	print("Power-up picked!")
+	
+	# Increase the player's health by 20
+	health += 20
+	print("Health increased to ", health)
 		
 		
 func enemy_attack():
