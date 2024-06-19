@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-var speed = 40
+var speed = 35
 var player_chase = false
 var player = null
 
-var health = 100
+var health = 150
 var player_inattack_zone = false
 
 
@@ -14,14 +14,14 @@ func _physics_process(delta):
 	if player_chase:
 		position += (player.position - position)/speed
 
-		$AnimatedSprite2D.play("Walk_Sunak")
+		$AnimatedSprite2D.play("Walk_Kickl")
 		
 		if(player.position.x - position.x) < 0:
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false 
 	else:
-		$AnimatedSprite2D.play("Idle_Sunak")
+		$AnimatedSprite2D.play("Idle_Kickl")
 
 func _on_detection_area_body_entered(body):
 	player = body
@@ -49,7 +49,7 @@ func _on_enemy_hit_box_body_exited(body):
 func deal_with_damage():
 	if player_inattack_zone and Global.player_current_attack == true:
 		health = health -20
-		print("attacked homophobe :3 ")
+		print("attacked :3 ")
 		print(health)
 		if health <= 0:
 			self.queue_free()
