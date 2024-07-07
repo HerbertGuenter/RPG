@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://cw7ypqnfntwwx"]
+[gd_scene load_steps=39 format=3 uid="uid://cw7ypqnfntwwx"]
 
 [ext_resource type="Script" path="res://scences/enemyRED.gd" id="1_w85f8"]
 [ext_resource type="Texture2D" uid="uid://b5jcafetisefj" path="res://tutorialgodot/sprites/characters/slime.png" id="2_gbqct"]
 [ext_resource type="Texture2D" uid="uid://bjup7kp3x8b78" path="res://tutorialgodot/sprites/characters/slimeRED.png" id="3_qsyex"]
+[ext_resource type="AudioStream" uid="uid://dlvf0cailjdcd" path="res://tutorialgodot/sprites/VoiceLines/slimeVoice.mp3" id="4_cp6n1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ehhai"]
 atlas = ExtResource("2_gbqct")
@@ -280,6 +281,9 @@ shape = SubResource("CircleShape2D_hye0k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_5uctl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_cp6n1")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

@@ -7,6 +7,8 @@ var player = null
 var health = 100
 var player_inattack_zone = false
 
+# Reference to the AudioStreamPlayer2D node
+@onready var audio_player = $AudioStreamPlayer2D
 
 func _physics_process(delta):
 	deal_with_damage()
@@ -26,6 +28,8 @@ func _physics_process(delta):
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true
+	# Play the voice line when the player is detected
+	audio_player.play()
 
 
 func _on_detection_area_body_exited(body):
@@ -39,6 +43,7 @@ func enemy():
 
 func _on_enemy_hit_box_body_entered(body):
 	if body.has_method("player"):
+		audio_player.play()
 		player_inattack_zone = true
 
 

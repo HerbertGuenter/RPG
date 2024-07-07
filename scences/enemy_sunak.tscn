@@ -1,9 +1,10 @@
-[gd_scene load_steps=54 format=3 uid="uid://bus78lv8kqa3s"]
+[gd_scene load_steps=55 format=3 uid="uid://bus78lv8kqa3s"]
 
 [ext_resource type="Script" path="res://enemySunak.gd" id="1_j14b1"]
 [ext_resource type="Texture2D" uid="uid://ckyw5tjw1xefo" path="res://tutorialgodot/sprites/characters/slimeSunak.png" id="2_cb70d"]
 [ext_resource type="Texture2D" uid="uid://bfduqiyemus7y" path="res://tutorialgodot/sprites/characters/slimeKickl.png" id="2_l6fa4"]
 [ext_resource type="Texture2D" uid="uid://b5jcafetisefj" path="res://tutorialgodot/sprites/characters/slime.png" id="2_mcuxd"]
+[ext_resource type="AudioStream" uid="uid://bpojyudnswo0h" path="res://tutorialgodot/sprites/VoiceLines/RishiVoice.mp3" id="5_s8hvx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8odh"]
 atlas = ExtResource("2_l6fa4")
@@ -382,8 +383,8 @@ script = ExtResource("1_j14b1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_aifps")
-animation = &"Idle_Sunak"
-frame_progress = 0.210025
+animation = &"Walk_Sunak"
+frame_progress = 0.537936
 offset = Vector2(0, -6)
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -402,6 +403,9 @@ shape = SubResource("CircleShape2D_hye0k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_5uctl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_s8hvx")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
